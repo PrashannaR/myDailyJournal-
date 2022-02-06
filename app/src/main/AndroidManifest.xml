@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDailyJournal">
         <activity
-            android:name=".HomeScreen"
+            android:name=".SeeJournal"
+            android:exported="false" />
+        <activity
+            android:name=".AddJournal"
             android:exported="false" />
         <activity
             android:name=".Login"

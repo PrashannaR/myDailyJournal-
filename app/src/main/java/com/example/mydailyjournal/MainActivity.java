@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-    Button btnLogin, btnSignup;
+    Button btnAdd, btnSee;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,20 +17,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btnLogin = findViewById(R.id.btnLogin);
-        btnSignup = findViewById(R.id.btnSignUp);
+        btnAdd = findViewById(R.id.btnAdd);
+        btnSee = findViewById(R.id.btnSee);
 
-        btnLogin.setOnClickListener(new View.OnClickListener() {
+        btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, Login.class));
+                startActivity(new Intent(MainActivity.this, AddJournal.class));
             }
         });
 
-        btnSignup.setOnClickListener(new View.OnClickListener() {
+        btnSee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(MainActivity.this, SignUp.class));
+                startActivity(new Intent(MainActivity.this, SeeJournal.class));
             }
         });
     }

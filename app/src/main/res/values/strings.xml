@@ -14,4 +14,13 @@
     <string name="click">Already Signed Up? Click Here To Login</string>
     <string name="enterLogin">Enter Your Login\n Credentials To Continue</string>
     <string name="tapSingUp">Not Registered Yet? Tap Here To Sign Up</string>
+    <string name="none">none</string>
+    <string name="user">User</string>
+    <string name="lines">I Hope You Are Fine.\nEven If You Aren\'t,\nI Am Here To Listen To You :)</string>
+    <string name="firstQue">Wanna share your day? I will keep it as a secret ;)</string>
+    <string name="start_your_today_s_journal">Start Your Today\'s Journal</string>
+    <string name="wanna_see_your_old_journals">Wanna See Your Old Journals?</string>
+    <string name="see_your_previous_journals">See Your Previous Journals</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="tap_to_add_photos">Tap to add Photos</string>
 </resources>
