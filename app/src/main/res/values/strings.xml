@@ -23,4 +23,9 @@
     <string name="see_your_previous_journals">See Your Previous Journals</string>
     <string name="welcome_back">Welcome Back!</string>
     <string name="tap_to_add_photos">Tap to add Photos</string>
+    <string name="go_through_your_old_journals_nor_even_edit_them">Go Through Your Old Journals\nOr Even Edit Them</string>
+    <string name="title">Title</string>
+    <string name="journal_body">Journal Body</string>
+    <string name="journal_title">Journal Title</string>
+    <string name="save">Save</string>
 </resources>
