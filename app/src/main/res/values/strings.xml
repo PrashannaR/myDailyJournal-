@@ -5,13 +5,13 @@
     <string name="desc">A friend to accompany your thoughts</string>
     <string name="login">Login</string>
     <string name="sign_up">Sign Up</string>
-    <string name="enter">Enter Your Details to\n get started</string>
+    <string name="enter">Enter Your Details To\n Get Started</string>
     <string name="name">Name</string>
     <string name="phone_number">Phone Number</string>
     <string name="e_mail">E-mail</string>
     <string name="password">Password</string>
     <string name="rePw">Re Enter Your Password</string>
-    <string name="click">Already Signed Up? Click here to Login</string>
-    <string name="enterLogin">Enter Your Login Credentials\n to Continue</string>
+    <string name="click">Already Signed Up? Click Here To Login</string>
+    <string name="enterLogin">Enter Your Login\n Credentials To Continue</string>
     <string name="tapSingUp">Not Registered Yet? Tap Here To Sign Up</string>
 </resources>
