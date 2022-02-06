@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">My Daily Journal</string>
+    <string name="logo">logo</string>
+    <string name="appName">My Daily Journal</string>
+    <string name="desc">A friend to accompany your thoughts</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
 </resources>
