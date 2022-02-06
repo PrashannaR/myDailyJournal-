@@ -4,17 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mydailyjournal.database.DBHelperLogin;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class Login extends AppCompatActivity {
     Button btnLogin;
     TextView click;
     TextInputLayout emailInputLayout, passwordInputLayout;
+
+    //database
+    DBHelperLogin dbHelperLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,10 @@ public class Login extends AppCompatActivity {
         emailInputLayout = findViewById(R.id.emailInputLayout);
         passwordInputLayout = findViewById(R.id.passwordInputLayout);
 
+        //database
+        dbHelperLogin = new DBHelperLogin(this);
+
+
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,9 +46,14 @@ public class Login extends AppCompatActivity {
                 boolean validate = check(email, pw);
 
                 if(validate){
-                    Toast.makeText(Login.this, "This works", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(Login.this, "Nope", Toast.LENGTH_SHORT).show();
+                    Boolean checkUser = dbHelperLogin.checkEmailAndPassword(email, pw);
+                    if(checkUser == true){
+                        Intent intent = new Intent(Login.this, HomeScreen.class);
+                        startActivity(intent);
+                        finish();
+                    }else {
+                        Toast.makeText(Login.this, "Invalid User Credentials", Toast.LENGTH_SHORT).show();
+                    }
                 }
 
             }

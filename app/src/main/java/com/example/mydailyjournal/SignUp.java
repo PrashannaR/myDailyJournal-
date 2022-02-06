@@ -10,12 +10,15 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mydailyjournal.database.DBHelperLogin;
 import com.google.android.material.textfield.TextInputLayout;
 
 public class SignUp extends AppCompatActivity {
     Button btnSignUp;
     TextView click;
     TextInputLayout nameInputLayout, emailInputLayout, passwordInputLayout, rePasswordInputLayout;
+    //database
+    DBHelperLogin dbHelperLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,9 @@ public class SignUp extends AppCompatActivity {
         passwordInputLayout = findViewById(R.id.passwordInputLayout);
         rePasswordInputLayout = findViewById(R.id.rePasswordInputLayout);
 
+        //database
+        dbHelperLogin = new DBHelperLogin(this);
+
         btnSignUp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,11 +48,28 @@ public class SignUp extends AppCompatActivity {
 
                 boolean validate = check(name, email, pw, rePw);
                 if (validate){
-                    Toast.makeText(SignUp.this, "All good", Toast.LENGTH_SHORT).show();
+                    if (pw.equals(rePw)){
+                        Boolean checkUser = dbHelperLogin.checkUser(email);
+                         if (checkUser == false){
+                             Boolean add = dbHelperLogin.addData(name, email, pw);
+                             if (add == true){
+                                 Intent intent = new Intent(SignUp.this, HomeScreen.class);
+                                 startActivity(intent);
+                                 finish();
+                             }else {
+                                 Toast.makeText(SignUp.this, "An error occurred", Toast.LENGTH_SHORT).show();
+                             }
+                         } else {
+                             Toast.makeText(SignUp.this, "User Already Exists\n Please Login To Continue", Toast.LENGTH_SHORT).show();
+                         }
+                    }else {
+                        Toast.makeText(SignUp.this, "Please Enter The Same Password as above", Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });
 
+        //from login to signup
         click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -56,6 +79,7 @@ public class SignUp extends AppCompatActivity {
         });
     }
 
+    //check validation
     private boolean check(String name, String email, String pw, String rePw) {
         if(name.length() == 0){
             nameInputLayout.requestFocus();
