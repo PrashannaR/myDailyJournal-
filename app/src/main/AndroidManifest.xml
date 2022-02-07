@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyDailyJournal">
         <activity
+            android:name=".DisplayOrEditJournal"
+            android:exported="false" />
+        <activity
             android:name=".SeeJournal"
             android:exported="false" />
         <activity
