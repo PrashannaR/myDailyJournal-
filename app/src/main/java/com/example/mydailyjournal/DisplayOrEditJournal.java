@@ -44,6 +44,7 @@ public class DisplayOrEditJournal extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), EditJournal.class);
                 intent.putExtra("ID", model.getID());
                 startActivity(intent);
+                finish();
 
             }
         });
@@ -54,6 +55,7 @@ public class DisplayOrEditJournal extends AppCompatActivity {
                 dbJournal.delete(model.getID());
                 startActivity(new Intent(getApplicationContext(), SeeJournal.class));
                 Toast.makeText(getApplicationContext(), "Journal Deleted", Toast.LENGTH_SHORT).show();
+                finish();
 
             }
         });

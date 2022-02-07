@@ -66,8 +66,6 @@ public class EditJournal extends AppCompatActivity {
 
                 if(id == model.getID()){
                     Toast.makeText(EditJournal.this, "Journal Successfully Updated", Toast.LENGTH_SHORT).show();
-                }else {
-                    Toast.makeText(EditJournal.this, "Re try", Toast.LENGTH_SHORT).show();
                 }
 
                 Intent intent = new Intent(EditJournal.this, DisplayOrEditJournal.class);
