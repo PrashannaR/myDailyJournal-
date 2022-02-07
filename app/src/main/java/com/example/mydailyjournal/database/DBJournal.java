@@ -19,12 +19,12 @@ public class DBJournal extends SQLiteOpenHelper {
 
 
     public DBJournal(Context context) {
-        super(context, "journal", null, 2);
+        super(context, "journal.db", null, 2);
     }
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        String query = "CREATE TABLE journalTable (ID INT PRIMARY KEY, " +
+        String query = "CREATE TABLE journalTable (ID INT PRIMARY KEY AUTOINCREMENT, " +
                 "title TEXT," +
                 "body TEXT," +
                 "date TEXT," +
@@ -57,9 +57,9 @@ public class DBJournal extends SQLiteOpenHelper {
 
     //for single journal
     public Model getJournal(long id){
-        SQLiteDatabase sqLiteDatabase = this.getReadableDatabase();
-        Cursor cursor = sqLiteDatabase.query("journalTable", new String[]{"ID", "body", "date", "time"},"ID =?",
-                new String[]{String.valueOf(id)}, null, null, null);
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        Cursor cursor = sqLiteDatabase.query("journalTable", new String[]{"ID","title" ,"body", "date", "time"},"ID=?",
+                new String[]{String.valueOf(id)}, null, null, null, null);
 
         if (cursor != null){
             cursor.moveToFirst();
@@ -99,5 +99,13 @@ public class DBJournal extends SQLiteOpenHelper {
         return allJournal;
 
 
+
+    }
+    String tableName = "journalTable";
+    String idName = "ID";
+    public void delete(long id){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        sqLiteDatabase.delete(tableName,idName+"=?", new String[]{String.valueOf(id)});
+        sqLiteDatabase.close();
     }
 }

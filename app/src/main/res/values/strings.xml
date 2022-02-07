@@ -31,4 +31,8 @@
     <string name="sample_title">Sample Title</string>
     <string name="sample_date">2069/04/20</string>
     <string name="sample_time">04:20</string>
+    <string name="feel">Feel Free To View or\nEdit Your Journal</string>
+    <string name="tap_to_edit">Tap To Edit</string>
+    <string name="sample_body">Sample Body</string>
+    <string name="tap_tp_delete">Tap Tp Delete</string>
 </resources>

@@ -1,15 +1,18 @@
 package com.example.mydailyjournal.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.mydailyjournal.DisplayOrEditJournal;
 import com.example.mydailyjournal.R;
 import com.example.mydailyjournal.model.Model;
 
@@ -61,6 +64,15 @@ public class Adapter extends RecyclerView.Adapter<Adapter.ViewHolder> {
             tvTitle = itemView.findViewById(R.id.tvTitle);
             tvDate = itemView.findViewById(R.id.tvDate);
             tvTime = itemView.findViewById(R.id.tvTime);
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent = new Intent(view.getContext(), DisplayOrEditJournal.class);
+                    intent.putExtra("ID",models.get(getAdapterPosition()).getID());
+                    view.getContext().startActivity(intent);
+                }
+            });
         }
     }
 }
