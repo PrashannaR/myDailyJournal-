@@ -41,6 +41,9 @@ public class DisplayOrEditJournal extends AppCompatActivity {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), EditJournal.class);
+                intent.putExtra("ID", model.getID());
+                startActivity(intent);
 
             }
         });
@@ -50,6 +53,7 @@ public class DisplayOrEditJournal extends AppCompatActivity {
             public void onClick(View view) {
                 dbJournal.delete(model.getID());
                 startActivity(new Intent(getApplicationContext(), SeeJournal.class));
+                Toast.makeText(getApplicationContext(), "Journal Deleted", Toast.LENGTH_SHORT).show();
 
             }
         });

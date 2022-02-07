@@ -4,13 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.mydailyjournal.database.DBJournal;
@@ -31,7 +27,7 @@ public class AddJournal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home_screen);
+        setContentView(R.layout.activity_add_journal);
 
         titleInputLayout = findViewById(R.id.titleInputLayout);
         bodyInputLayout = findViewById(R.id.bodyInputLayout);

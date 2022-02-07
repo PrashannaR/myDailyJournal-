@@ -108,4 +108,14 @@ public class DBJournal extends SQLiteOpenHelper {
         sqLiteDatabase.delete(tableName,idName+"=?", new String[]{String.valueOf(id)});
         sqLiteDatabase.close();
     }
+
+    public int edit(Model model){
+        SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("title", model.getTitle());
+        contentValues.put("body", model.getBody());
+        contentValues.put("date", model.getDate());
+        contentValues.put("time", model.getTime());
+        return sqLiteDatabase.update(tableName,contentValues,idName+"=?", new String[]{String.valueOf(model.getID())});
+    }
 }
